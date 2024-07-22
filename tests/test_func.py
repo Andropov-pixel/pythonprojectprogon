@@ -13,7 +13,7 @@ def test_mask_account_card(string, expected_result):
 
 
 def test_get_date(date):
-    assert get_date(date) == "2018-07-11T02:26:18.671407"
+    assert get_date(date) == "11.07.2018"
 
 
 @pytest.mark.parametrize("string, expected_result", [
