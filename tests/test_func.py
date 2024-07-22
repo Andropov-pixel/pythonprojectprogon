@@ -1,6 +1,7 @@
 import pytest
-from src.widget import mask_account_card, get_data
+
 from src.masks import get_mask_card_number, get_mask_account
+from src.widget import mask_account_card, get_date
 
 
 @pytest.mark.parametrize("string, expected_result", [
@@ -11,13 +12,8 @@ def test_mask_account_card(string, expected_result):
     assert mask_account_card(string) == expected_result
 
 
-@pytest.fixture
-def date():
-    return "2018-07-11T02:26:18.671407"
-
-
-def test_get_data(date):
-    assert get_data(date) == "2018-07-11T02:26:18.671407"
+def test_get_date(date):
+    assert get_date(date) == "2018-07-11T02:26:18.671407"
 
 
 @pytest.mark.parametrize("string, expected_result", [
