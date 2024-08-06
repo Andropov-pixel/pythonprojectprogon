@@ -5,7 +5,8 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def mask_account_card(card_or_account_info: str) -> str:
     """принимает название и номер карты или номер счета
-    и возвращает замаскированный номер"""
+    и возвращает замаскированный номер
+    :rtype: object"""
     payment_info = card_or_account_info.split(" ")
     payment_number = int(payment_info[-1])
     payment_name = payment_info[:-1]

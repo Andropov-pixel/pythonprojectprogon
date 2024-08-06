@@ -65,7 +65,7 @@ transactions = [
 
 
 def filter_by_currency(
-        transactions: list[dict], cod_curr: str
+    transactions: list[dict], cod_curr: str
 ) -> Generator[dict, None, None]:
     """Генератор - принимает список словарей и
     возвращает операции, в которых указана заданная валюта."""
@@ -94,7 +94,7 @@ for transac in range(5):
 def card_number_generator(start: int, end: int) -> object:
     """Генерирует номера карт в формате XXXX XXXX XXXX XXXX."""
     for number in range(start, end + 1):
-        yield " ".join("{:016}".format(number)[i: i + 4] for i in range(0, 16, 4))
+        yield " ".join(f"{number:016}"[i : i + 4] for i in range(0, 16, 4))
 
 
 for card_number in card_number_generator(1, 9):

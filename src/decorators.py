@@ -15,7 +15,7 @@ def log(filename: Any) -> Callable:
                     f" {args}, kwargs:{kwargs}. Result: {result}"
                 )
             except Exception as e:
-                log_message = f"{func.__name__} error:" f" {e}. Inputs:{args}, {kwargs}"
+                log_message = f"{func.__name__} error: {e}. " f"Inputs:{args}, {kwargs}"
             if filename:
                 with open(filename, "a", encoding="utf-8") as file:
                     file.write(log_message + "\n")
