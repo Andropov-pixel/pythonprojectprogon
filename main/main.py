@@ -98,7 +98,7 @@ elif user_input_3.lower() != "да":
 def get_transactions_list_by_date(
     transactions: List[Dict], user_input: str, user_input_sort: str
 ) -> Any:
-    """ """
+    """ сортировка по дате транзакции """
     if user_input.lower() == "да":
         if user_input_sort.lower() == "по возрастанию":
             new_transactions = sort_by_date(transactions, True)
