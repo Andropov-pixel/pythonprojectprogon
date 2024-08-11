@@ -7,7 +7,9 @@ from src.processing import filter_by_state, sort_by_date
 from src.format_output import get_right_format
 from src.search_str import search_by_string
 
-print("Привет! Добро пожаловать в программу" "работы с банковскими транзакциями.")
+print("Привет! Добро пожаловать" " "
+      "в программу" "работы с банковскими транзакциями.")
+
 print(
     "Выберите необходимый пункт меню:"
     "\n1. Получить информацию о транзакциях из JSON-файла"
@@ -98,7 +100,7 @@ elif user_input_3.lower() != "да":
 def get_transactions_list_by_date(
     transactions: List[Dict], user_input: str, user_input_sort: str
 ) -> Any:
-    """ сортировка по дате транзакции """
+    """сортировка по дате транзакции"""
     if user_input.lower() == "да":
         if user_input_sort.lower() == "по возрастанию":
             new_transactions = sort_by_date(transactions, True)
@@ -119,7 +121,8 @@ print("Выводить только рублевые транзакции? Да
 user_input_5 = input()
 
 
-def get_transactions_list_rub(transactions: List[Dict], user_input: str) -> Any:
+def get_transactions_list_rub(transactions: List[Dict],
+                              user_input: str) -> Any:
     new_transactions = []
     if user_input.lower() == "да":
         for transaction in transactions:
@@ -130,10 +133,13 @@ def get_transactions_list_rub(transactions: List[Dict], user_input: str) -> Any:
         return transactions
 
 
-transactions_step_4 = get_transactions_list_rub(transactions_step_3, user_input_5)
+transactions_step_4 =\
+    (get_transactions_list_rub
+     (transactions_step_3, user_input_5))
 
 
-print("Отфильтровать список транзакций " "по определенному слову в описании? Да/Нет")
+print("Отфильтровать список транзакций " ""
+      "по определенному слову в описании? Да/Нет")
 user_input_6 = input()
 
 if user_input_6.lower() == "да":

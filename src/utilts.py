@@ -52,10 +52,10 @@ def transaction_amount_in_rub(transactions: list, transaction_id: int) -> Any:
                 return rub_amount
             else:
                 transaction_convert = dict()
-                transaction_convert["amount"] = (transaction)["operationAmount"][
-                    "amount"
-                ]
-                transaction_convert["currency"] = (transaction)["operationAmount"][
+                transaction_convert["amount"] = (
+                    transaction)["operationAmount"]["amount"]
+                transaction_convert["currency"] = \
+                    (transaction)["operationAmount"][
                     "currency"
                 ]["code"]
                 logger.info(
@@ -77,7 +77,7 @@ def transaction_amount_in_rub(transactions: list, transaction_id: int) -> Any:
 
 def convert_to_rub(transaction_convert: dict) -> Any:
     amount = transaction_convert["amount"]
-    currency = (transaction_convert)["currency"]
+    currency = transaction_convert["currency"]
     """Принимает значение в долларах или евро,
      обращается к внешнему API и возвращает конвертацию в рубли"""
     try:

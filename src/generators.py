@@ -91,10 +91,11 @@ for transac in range(5):
     print(next(descriptions))
 
 
-def card_number_generator(start: int, end: int) -> object:
+def card_number_generator(start: int, end: int):
     """Генерирует номера карт в формате XXXX XXXX XXXX XXXX."""
     for number in range(start, end + 1):
-        yield " ".join(f"{number:016}"[i : i + 4] for i in range(0, 16, 4))
+        yield ' '.join("{:016}".format(number)
+                       [i:i + 4] for i in range(0, 16, 4))
 
 
 for card_number in card_number_generator(1, 9):

@@ -15,9 +15,9 @@ def get_mask_card_number(card_number: int) -> str:
     card_n = str(card_number)
     # mask_card_number = card_n[:4] + " " + card_n[4:6]
     # + "** **** " + card_n[-4:]
-    logger.info(
-        f"Card mask: {card_n[:4]} " f"" f"" f"{card_n[4:6]}** ****" f" {card_n[-4:]}"
-    )
+    logger.info(f"Card mask:"
+                f" {card_n[:4]} " f"" f"" f"{card_n[4:6]}"
+                f"** ****" f" {card_n[-4:]}")
     return f"{card_n[:4]} {card_n[4:6]}** ****" f" {card_n[-4:]}"
 
 
