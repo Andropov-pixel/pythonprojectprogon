@@ -1,13 +1,17 @@
 import logging
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s: %(filename)s: %(levelname)s: %(message)s",
-    filename="../logs/mask.log",
-    filemode="w",
-)
+logger = logging.getLogger('mask')
+file_handler = logging.FileHandler('logs/mask.log')
+file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+logger.setLevel(logging.DEBUG)
 
-logger = logging.getLogger("mask")
+logger.debug('Debug message')
+logger.info('Info message')
+logger.warning('Warning message')
+logger.error('Error message')
+logger.critical('Critical message')
 
 
 def get_mask_card_number(card_number: int) -> str:

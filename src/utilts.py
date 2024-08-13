@@ -9,14 +9,18 @@ from requests import RequestException
 load_dotenv()
 api_key = os.getenv("API_KEY")
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s: %(filename)s: %(levelname)s: %(message)s",
-    filename="../logs/utils.log",
-    filemode="w",
-)
+logger = logging.getLogger('utils')
+file_handler = logging.FileHandler('logs/utils.log')
+file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+logger.setLevel(logging.DEBUG)
 
-logger = logging.getLogger("utils")
+logger.debug('Debug message')
+logger.info('Info message')
+logger.warning('Warning message')
+logger.error('Error message')
+logger.critical('Critical message')
 
 
 def get_transactions_dictionary(path: str) -> Any:
@@ -55,9 +59,9 @@ def transaction_amount_in_rub(transactions: list, transaction_id: int) -> Any:
                 transaction_convert["amount"] = (
                     transaction)["operationAmount"]["amount"]
                 transaction_convert["currency"] = \
-                    (transaction)["operationAmount"][
-                    "currency"
-                ]["code"]
+                    transaction["operationAmount"][
+                        "currency"
+                    ]["code"]
                 logger.info(
                     f"Operation amount in "
                     f"{transaction_convert["currency"]}:"
@@ -105,7 +109,6 @@ def convert_to_rub(transaction_convert: dict) -> Any:
     except RequestException:
         return 0
 
-
-#    if __name__ == "__main__":
+#    if __name__ == "utilts":
 #    transactions = get_transactions_dictionary("../data/operations.json")
 #    print(transaction_amount_in_rub(transactions, 41428829))
