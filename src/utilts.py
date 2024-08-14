@@ -1,8 +1,9 @@
 import json
+import logging
 import os
 from typing import Any
+
 import requests
-import logging
 from dotenv import load_dotenv
 from requests import RequestException
 

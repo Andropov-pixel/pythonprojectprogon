@@ -1,0 +1,5 @@
+2024-08-13 14:43:00,354 DEBUG: Debug message
+2024-08-13 14:43:00,354 INFO: Info message
+2024-08-13 14:43:00,354 WARNING: Warning message
+2024-08-13 14:43:00,354 ERROR: Error message
+2024-08-13 14:43:00,354 CRITICAL: Critical message
