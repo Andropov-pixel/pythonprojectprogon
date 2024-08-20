@@ -1,8 +1,8 @@
 import pytest
 
+import src
 from src.generators import transactions
 from src.processing import initial_list
-
 
 @pytest.fixture
 def test_initial_list():
@@ -11,7 +11,7 @@ def test_initial_list():
 
 @pytest.fixture
 def test_initial_list_1():
-    return initial_list
+    return src.processing.initial_list
 
 
 @pytest.fixture
