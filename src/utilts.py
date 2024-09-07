@@ -11,7 +11,7 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 
 logger = logging.getLogger('utils')
-file_handler = logging.FileHandler('logs/utils.log')
+file_handler = logging.FileHandler('../tests/logs/utils.log')
 file_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)

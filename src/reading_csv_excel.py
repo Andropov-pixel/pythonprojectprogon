@@ -4,7 +4,7 @@ import pandas as pd
 
 read_csv_excel_logger = logging.getLogger("reading_csv_excel")
 file_handler = (logging.FileHandler
-                ("logs/reading_csv_excel.log", "w", encoding="utf-8"))
+                ("./tests/logs/reading_csv_excel.log", "w", encoding="utf-8"))
 file_formatter = (logging.Formatter
                   ("%(asctime)s %(filename)s %(levelname)s: %(message)s"))
 file_handler.setFormatter(file_formatter)
