@@ -1,8 +1,10 @@
+import csv
 import json
 import logging
 import os
 from typing import Any
 
+import pandas as pd
 import requests
 from dotenv import load_dotenv
 from requests import RequestException
@@ -43,6 +45,69 @@ def get_transactions_dictionary(path: str) -> Any:
         logger.error("File was not found")
         transactions_data = []
         return transactions_data
+
+
+def get_transactions_dictionary_csv(csv_path: str) -> list[dict]:
+    """Aункция пути до CSV-файла и возвращает список словарей с данными о финансовых транзакциях"""
+
+    transaction_list = []
+    try:
+        with open(csv_path, encoding="utf-8") as csv_file:
+            reader = csv.reader(csv_file, delimiter=";")
+            next(reader)
+            for row in reader:
+                if row:
+                    id_, state, date, amount, currency_name, currency_code, from_, to, description = row
+                    transaction_list.append(
+                        {
+                            "id": str(id_),
+                            "state": state,
+                            "date": date,
+                            "operationAmount": {
+                                "amount": str(amount),
+                                "currency": {"name": currency_name, "code": currency_code},
+                            },
+                            "description": description,
+                            "from": from_,
+                            "to": to,
+                        }
+                    )
+    except Exception:
+        return []
+    return transaction_list
+
+
+def get_transactions_dictionary_excel(excel_path: str) -> list[dict]:
+    """FAункция пути до EXCEL-файла и возвращает список словарей с данными о финансовых транзакциях"""
+
+    transaction_list = []
+    try:
+        excel_data = pd.read_excel(excel_path)
+        len_, b = excel_data.shape
+        for i in range(len_):
+            if excel_data["id"][i]:
+                transaction_list.append(
+                    {
+                        "id": str(excel_data["id"][i]),
+                        "state": excel_data["state"][i],
+                        "date": excel_data["date"][i],
+                        "operationAmount": {
+                            "amount": str(excel_data["amount"][i]),
+                            "currency": {
+                                "name": excel_data["currency_name"][i],
+                                "code": excel_data["currency_code"][i],
+                            },
+                        },
+                        "description": excel_data["description"][i],
+                        "from": excel_data["from"][i],
+                        "to": excel_data["to"][i],
+                    }
+                )
+            else:
+                continue
+    except Exception:
+        return []
+    return transaction_list
 
 
 def transaction_amount_in_rub(transactions: list, transaction_id: int) -> Any:
@@ -113,3 +178,5 @@ def convert_to_rub(transaction_convert: dict) -> Any:
 #    if __name__ == "utilts":
 #    transactions = get_transactions_dictionary("../data/operations.json")
 #    print(transaction_amount_in_rub(transactions, 41428829))
+#     wine_reviews = pd.read_csv("transactions.csv")
+#     excel_data = pd.read_excel("transactions_excel.xlsx")
