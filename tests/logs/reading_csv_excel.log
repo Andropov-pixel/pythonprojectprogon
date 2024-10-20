@@ -1,0 +1,6 @@
+2024-09-07 21:16:49,049 reading_csv_excel.py INFO: Work started
+2024-09-07 21:16:49,049 reading_csv_excel.py INFO: Creating a DataFrame from a csv file is successful
+2024-09-07 21:16:49,052 reading_csv_excel.py INFO: The work is completed
+2024-09-07 21:16:49,055 reading_csv_excel.py INFO: Work started
+2024-09-07 21:16:49,056 reading_csv_excel.py WARNING: File not found. Incorrect path to file
+2024-09-07 21:16:49,056 reading_csv_excel.py INFO: The work is completed
