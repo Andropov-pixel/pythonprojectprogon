@@ -1,0 +1,21 @@
+2024-09-22 11:49:42,435 DEBUG: Debug message
+2024-09-22 11:49:42,436 INFO: Info message
+2024-09-22 11:49:42,436 WARNING: Warning message
+2024-09-22 11:49:42,436 ERROR: Error message
+2024-09-22 11:49:42,436 CRITICAL: Critical message
+2024-09-22 11:49:42,460 INFO: Getting transaction list starts
+2024-09-22 11:49:42,460 INFO: Transactions list ready
+2024-09-22 11:49:48,974 DEBUG: Debug message
+2024-09-22 11:49:48,974 INFO: Info message
+2024-09-22 11:49:48,974 WARNING: Warning message
+2024-09-22 11:49:48,974 ERROR: Error message
+2024-09-22 11:49:48,974 CRITICAL: Critical message
+2024-09-22 11:49:48,978 INFO: Getting transaction list starts
+2024-09-22 11:49:48,978 ERROR: File was not found
+2024-09-22 11:49:53,656 DEBUG: Debug message
+2024-09-22 11:49:53,656 INFO: Info message
+2024-09-22 11:49:53,656 WARNING: Warning message
+2024-09-22 11:49:53,656 ERROR: Error message
+2024-09-22 11:49:53,656 CRITICAL: Critical message
+2024-09-22 11:49:53,660 INFO: Getting transaction list starts
+2024-09-22 11:49:53,660 ERROR: File was not found
