@@ -31,3 +31,5 @@ class Product:
             print("Цена не должна быть нулевая или орицательная")
         else:
             self.__price = value
+
+#Test for work
