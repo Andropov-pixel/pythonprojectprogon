@@ -5,7 +5,7 @@ class LawnGrass(Product):
     """Товары категории Газонная трава"""
 
     def __init__(
-            self, name, description, price, quantity, country, germination_period, color
+        self, name, description, price, quantity, country, germination_period, color
     ):
         super().__init__(name, description, price, quantity)
         self.country = country
