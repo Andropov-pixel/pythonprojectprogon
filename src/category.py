@@ -1,6 +1,11 @@
-from src.product import Product
+from typing import Any
 
-class Category:
+from src.base import Base
+from src.product import Product
+from src.zero_product_exception import ZeroProductException
+
+
+class Category(Base):
     """Категория товара"""
 
     category_count = 0
@@ -21,11 +26,21 @@ class Category:
     def __str__(self):
         return f"{self.name}, количество продуктов: {len(self.__products)} шт."
 
-    def add_product(self, product: dict):
-        """Метод добавления нового продукта в список"""
+    def add_product(self, product: Product) -> Any:
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity == 0:
+                    raise ZeroProductException(
+                        "Нельзя добавить товар с нулевым количеством"
+                    )
+            except ZeroProductException as e:
+                print(str(e))
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
+                print("Товар успешно добавлен")
+            finally:
+                print("Обработка добавления товара завершена")
         else:
             raise TypeError
 
@@ -33,7 +48,7 @@ class Category:
     def get_product_list(self) -> str:
         product_list = ""
         for product in self.__products:
-            product_list += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_list += f"{str(product)}\n"
         return product_list
 
     @property
@@ -42,6 +57,14 @@ class Category:
         for product in self.__products:
             products_list.append(product)
         return products_list
+
+    def middle_price(self):
+        try:
+            return sum(product.price for product in self.__products) / len(
+                self.__products
+            )
+        except ZeroDivisionError:
+            return 0
 
 
 # result = Category("Product", "Description", ["product1", "product2", "product3"])

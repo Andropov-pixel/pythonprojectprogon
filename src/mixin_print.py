@@ -2,10 +2,6 @@ class MixinPrint:
     """Класс миксин для вывода в консоль информацию об объекте"""
 
     def __init__(self):
-        self.quantity = None
-        self.price = None
-        self.description = None
-        self.name = None
         print(repr(self))
 
     def __repr__(self):
